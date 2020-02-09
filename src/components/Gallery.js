@@ -30,9 +30,9 @@ const Gallery = (props) => {
 
                     {
 
-                        gallery.backdrops.map((img) => {
+                        gallery.backdrops.map((img, idx) => {
                             return (
-                                <Col className="my-2" xs={12} sm={6} md={4} lg={3}>
+                                <Col key={idx} className="my-2" xs={12} sm={6} md={4} lg={3}>
                                     <Image
                                         className="img-fluid"
                                         src={`${IMAGE_WIDTH_1000}${img.file_path}`} />
@@ -50,10 +50,10 @@ const Gallery = (props) => {
 
                     {
 
-                        gallery.posters.map((img) => {
+                        gallery.posters.map((img, idx) => {
                             return (
-                                <Col className="my-2" xs={12} sm={6} md={4} lg={3}>
-                                    <Image
+                                <Col key={idx} className="my-2" xs={12} sm={6} md={4} lg={3}>
+                                    <Image 
                                         className="img-fluid"
                                         src={`${IMAGE_HEIGHT_450}${img.file_path}`} />
                                 </Col>

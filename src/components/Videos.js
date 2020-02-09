@@ -32,7 +32,11 @@ const Videos = (props) => {
                         videoGallery.results.map((item) => {
                             return (
                                 <Col key={item.id} xs={12} sm={12} md={4} lg={4}>
-                                    <iframe width="400px" height="224px" src={`https://www.youtube.com/embed/${item.key}`} allowFullScreen>
+                                    <iframe
+                                        title="myFrame"
+                                        width="400px"
+                                        height="224px"
+                                        src={`https://www.youtube.com/embed/${item.key}`} allowFullScreen>
                                     </iframe>
                                 </Col>
                             )

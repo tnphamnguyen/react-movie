@@ -12,25 +12,25 @@ const GenericFilmList = (props) => {
     const axiosInstance = axios.create({
         timeout: 15000
     });
-const getCurrentLabel=()=>{
-    for(let i=0; i<menu.length;i++){
-        const theme= menu[i]
-        console.log("theme123",theme);
-        
-        if(props.currentTheme===theme.theme){
-            return theme.label;
+    const getCurrentLabel = () => {
+        for (let i = 0; i < menu.length; i++) {
+            const theme = menu[i]
+            // console.log("theme123",theme);
+
+            if (props.currentTheme === theme.theme) {
+                return theme.label;
+            }
         }
     }
-}
     useEffect(() => {
         // console.log('GenericFilmList', currentPage, props.currentTheme, oldTheme)
         setOldTheme(props.currentTheme)
         // console.log('oldTheme',oldTheme)
         async function getByTheme() {
             const url = selectURL(props.currentTheme)
-            
+
             if (filmList.results) {
-                if (oldTheme === props.currentTheme && currentPage>1) {
+                if (oldTheme === props.currentTheme && currentPage > 1) {
                     const response = await axiosInstance.get(url + 'page=' + currentPage)
                     const tmp = filmList.results;
                     const newResults = response.data.results
@@ -44,7 +44,10 @@ const getCurrentLabel=()=>{
                     setCurrentPage(1);
                     // console.log('current page',currentPage)
                     const response = await axiosInstance.get(url + 'page=1')
+                    // console.log('response',response);
                     setFilmList(response.data)//affecter response à filmList
+                    // console.log('response.data',response.data);
+
                 }
 
             } else {
@@ -73,7 +76,7 @@ const getCurrentLabel=()=>{
 
                     </Row>
                     <Row className="my-3">
-                        <Button  onClick={() => setCurrentPage(currentPage + 1)}
+                        <Button onClick={() => setCurrentPage(currentPage + 1)}
                             className="mr-auto ml-auto my-3" variant="outline-primary" size="lg">
                             Charger plus</Button>
                     </Row>

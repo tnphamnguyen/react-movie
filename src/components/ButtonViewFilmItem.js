@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Button, Modal, Row, Col, Image, Badge, Tabs, Tab } from 'react-bootstrap';
 import axios from 'axios';
 import { selectURLFilmDetail, IMAGE_HEIGHT_450, COLOR_TAB, COLORS_CODE } from './../constants/config'
@@ -47,7 +47,8 @@ const ButtonViewFilmItem = (props) => {
                                     <Image
                                         className="imgPoster"
                                         fluid
-                                        src={`${IMAGE_HEIGHT_450}${currentFilm.poster_path ? currentFilm.poster_path : currentFilm.backdrop_path}`} />
+                                        src={`${IMAGE_HEIGHT_450}${currentFilm.poster_path ? currentFilm.poster_path : currentFilm.backdrop_path}`}
+                                    />
 
                                 </Col>
                                 <Col className="mt-2" md={9}>
@@ -62,10 +63,10 @@ const ButtonViewFilmItem = (props) => {
                                         Array.isArray(currentFilm.production_countries) &&
                                         <React.Fragment>
                                             {
-                                                currentFilm.production_countries.map((pc) => {
+                                                currentFilm.production_countries.map((pc, idx) => {
                                                     return (
                                                         <React.Fragment>
-                                                            <Badge pill style={{ backgroundColor: getRandomColor(COLORS_CODE) }}
+                                                            <Badge key={idx} pill style={{ backgroundColor: getRandomColor(COLORS_CODE) }}
                                                                 className="mx-1 badgeSize" >
                                                                 {pc.name}
                                                             </Badge>
@@ -82,9 +83,10 @@ const ButtonViewFilmItem = (props) => {
                                         Array.isArray(currentFilm.genres) &&
                                         <React.Fragment>
                                             {
-                                                currentFilm.genres.map((g) => {
+                                                currentFilm.genres.map((g, idx) => {
                                                     return (
                                                         <Badge
+                                                            key={idx}
                                                             variant={getRandomColor(COLOR_TAB)}
                                                             className="mx-1 badgeSize" >
                                                             {g.name}
@@ -99,16 +101,13 @@ const ButtonViewFilmItem = (props) => {
                         </Tab>
                         <Tab eventKey="casting" title="Casting">
                             <Casting idFilm={currentFilm.id} />
-
                         </Tab>
                         <Tab eventKey="gallery" title="Galerie">
                             <Gallery idFilm={currentFilm.id} />
-
                         </Tab>
 
                         <Tab eventKey="videos" title="Vidéos">
                             <Videos idFilm={currentFilm.id} />
-
                         </Tab>
                     </Tabs>
 

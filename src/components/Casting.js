@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {selectURLCasting, IMAGE_HEIGHT_175 } from './../constants/config'
+import { selectURLCasting, IMAGE_HEIGHT_175 } from './../constants/config'
 import axios from 'axios'
 import { Row, Col, Card } from 'react-bootstrap';
 
@@ -10,7 +10,7 @@ const Casting = (props) => {
         timeout: 15000
     });
     useEffect(() => {
-        console.log('props.idFilm', props.idFilm);
+        // console.log('props.idFilm', props.idFilm);
         async function getCasting() {
             const url = selectURLCasting(props.idFilm)
             const response = await axiosInstance.get(url)
@@ -29,16 +29,19 @@ const Casting = (props) => {
                 &&
                 <Row>
                     {
-                        castingGallery.cast.map((item) => {
+                        castingGallery.cast.map((item, idx) => {
                             return (
-                                <Col xs={12} sm={6} md={4} lg={2}>
+                                <Col key={idx} xs={12} sm={6} md={4} lg={2}>
                                     <Card className="mb-3">
                                         <Card.Img
                                             className="img-fluid"
-                                            variant="top" onError={(e)=>{e.target.onerror = null; e.target.src='http://placehold.it/138x175'}}
+                                            variant="top"
+                                            onError={(e) => { e.target.onerror = null; e.target.src = 'http://placehold.it/138x175' }}
                                             src={`${IMAGE_HEIGHT_175}${item.profile_path}`} />
                                         <Card.Body>
-                                            <Card.Title className="cardTitle"> {item.name}</Card.Title>
+                                            <Card.Title className="cardTitle">
+                                                {item.name}
+                                            </Card.Title>
                                             <Card.Text className="text-justify cardTitle">
                                                 {item.character}
                                             </Card.Text>
@@ -58,16 +61,19 @@ const Casting = (props) => {
                 &&
                 <Row>
                     {
-                        castingGallery.crew.map((item) => {
+                        castingGallery.crew.map((item, idx) => {
                             return (
-                                <Col xs={12} sm={6} md={4} lg={2}>
+                                <Col key={idx} xs={12} sm={6} md={4} lg={2}>
                                     <Card className="mb-3">
                                         <Card.Img
                                             className="img-fluid"
-                                            variant="top" onError={(e)=>{e.target.onerror = null; e.target.src='http://placehold.it/138x175'}}
+                                            variant="top"
+                                            onError={(e) => { e.target.onerror = null; e.target.src = 'http://placehold.it/138x175' }}
                                             src={`${IMAGE_HEIGHT_175}${item.profile_path}`} />
                                         <Card.Body>
-                                            <Card.Title className="cardTitle"> {item.name}</Card.Title>
+                                            <Card.Title className="cardTitle">
+                                                {item.name}
+                                            </Card.Title>
                                             <Card.Text className="text-justify cardTitle">
                                                 {item.job}
                                             </Card.Text>

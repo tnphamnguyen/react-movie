@@ -13,6 +13,7 @@ export const limitLength = (str, len) => {
     }
     return res;
 }
+
 export const getRandomOfArray=(arr)=>{
     const indexRd=Math.floor(Math.random() * Math.floor(arr.length));
     return arr[indexRd]
