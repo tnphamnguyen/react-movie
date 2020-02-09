@@ -15,7 +15,7 @@ const GenericFilmList = (props) => {
 const getCurrentLabel=()=>{
     for(let i=0; i<menu.length;i++){
         const theme= menu[i]
-        console.log("theme",theme);
+        console.log("theme123",theme);
         
         if(props.currentTheme===theme.theme){
             return theme.label;

@@ -22,12 +22,6 @@
     padding: 0.7rem!important;
     font-size: 0.8rem!important
 }
-
-/* .cardImg {
-    width: 100%;
-    object-fit: cover
-} */
-
 .cardTitle {
     height: 3rem;
     overflow: hidden;
@@ -49,3 +43,4 @@ h2 span {
 h2~span {
     font-weight: bold;
 }
+

@@ -33,9 +33,9 @@ const Casting = (props) => {
                             return (
                                 <Col xs={12} sm={6} md={4} lg={2}>
                                     <Card className="mb-3">
-                                        <Card.Img alt="No image"
+                                        <Card.Img
                                             className="img-fluid"
-                                            variant="top"
+                                            variant="top" onError={(e)=>{e.target.onerror = null; e.target.src='http://placehold.it/138x175'}}
                                             src={`${IMAGE_HEIGHT_175}${item.profile_path}`} />
                                         <Card.Body>
                                             <Card.Title className="cardTitle"> {item.name}</Card.Title>
@@ -62,9 +62,9 @@ const Casting = (props) => {
                             return (
                                 <Col xs={12} sm={6} md={4} lg={2}>
                                     <Card className="mb-3">
-                                        <Card.Img alt="No image"
+                                        <Card.Img
                                             className="img-fluid"
-                                            variant="top"
+                                            variant="top" onError={(e)=>{e.target.onerror = null; e.target.src='http://placehold.it/138x175'}}
                                             src={`${IMAGE_HEIGHT_175}${item.profile_path}`} />
                                         <Card.Body>
                                             <Card.Title className="cardTitle"> {item.name}</Card.Title>
