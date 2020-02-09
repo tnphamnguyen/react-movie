@@ -31,7 +31,7 @@ const Videos = (props) => {
                     {
                         videoGallery.results.map((item) => {
                             return (
-                                <Col key={item.id} xs={12} sm={12} md={4} lg={4}>
+                                <Col key={item.id} xs={12} sm={12} md={12} lg={6} xl={4}>
                                     <iframe
                                         title="myFrame"
                                         width="400px"
